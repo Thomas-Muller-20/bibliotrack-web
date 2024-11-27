@@ -1,0 +1,7 @@
+echo "Running pre-commit hook..."
+
+# Check formatting
+echo "Checking code formatting with Spotless..."
+ng lint
+
+echo "Pre-commit checks passed."
