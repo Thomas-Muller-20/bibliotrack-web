@@ -1,7 +1,7 @@
 echo "Running pre-commit hook..."
 
 # Check formatting
-echo "Checking code formatting with Spotless..."
+echo "Checking code formatting with EsLint..."
 ng lint
 
 echo "Pre-commit checks passed."

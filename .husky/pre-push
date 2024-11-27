@@ -1,7 +1,7 @@
 echo "Running pre-push hook..."
 
 # Apply Spotless formatting
-echo "Applying code formatting with Spotless..."
+echo "Applying code formatting with EsLint..."
 npx eslint . --fix
 
 echo "Pre-push checks passed."
