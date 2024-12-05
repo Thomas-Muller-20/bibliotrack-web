@@ -1,0 +1,36 @@
+<main class="card text-start dialog-wrapper">
+  <div class="card-body p-4">
+    <h1 class="card-title text-center">Create book</h1>
+    <form [formGroup]="form">
+      <div class="row mb-4">
+        <div class="col-6">
+          <label for="title">Title:</label>
+          <input class="form-control" type="text" name="title" id="title" placeholder="Enter book's title" formControlName="title" required>
+        </div>
+        <div class="col-6">
+          <label for="author">Author:</label>
+          <input class="form-control" type="text" name="author" id="author" placeholder="Enter author name" formControlName="author" required>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label for="description">Description:</label>
+        <textarea class="form-control" name="description" id="description" placeholder="Enter description" formControlName="description"></textarea>
+      </div>
+
+    </form>
+
+    <button
+      class="btn btn-primary w-100 mt-3"
+      (click)="submitDialog()">
+      Save
+    </button>
+    <button
+      mat-raised-button
+      class="w-100 mt-1"
+      color="warn"
+      (click)="closeDialog()">
+      Go Back
+    </button>
+  </div>
+</main>

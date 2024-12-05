@@ -1,0 +1,50 @@
+<nav class="navbar position-absolute navbar-expand-lg fixed-top bg-white py-3 z-3">
+  <div class="container my-0">
+    <div class="collapse navbar-collapse justify-content-end gap-3" id="navbarSupportedContent">
+      <ng-container *ngIf="isGuest$ | async else signOutTemplate">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <button
+              mat-raised-button
+              (click)="openSignInDialog()">
+              Sign In
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              mat-raised-button
+              class="mx-2"
+              (click)="openSignUpDialog()">
+              Sign Up
+            </button>
+          </li>
+        </ul>
+      </ng-container>
+      <ng-template #signOutTemplate>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item ms-2">
+            <div *ngIf="user$ | async as user" class="d-flex">
+              <ul class="navbar-nav flex-row mb-2 mb-lg-0">
+                <li class="nav-item pe-3 border-end">
+                  <div>
+                    <button mat-raised-button (click)="openBookCreateDialog()" class="btn " type="button">
+                      Add book
+                    </button>
+                  </div>
+                </li>
+              </ul>
+              <button [matMenuTriggerFor]="menu" mat-raised-button>
+                {{ user.username }}
+              </button>
+              <mat-menu #menu="matMenu">
+                <a mat-menu-item class="dropdown-item" [routerLink]="['profile', user.id]">Profile</a>
+                <a mat-menu-item class="dropdown-item" [routerLink]="['home']" (click)="openSignOutDialog()">Sign
+                  out</a>
+              </mat-menu>
+            </div>
+          </li>
+        </ul>
+      </ng-template>
+    </div>
+  </div>
+</nav>
