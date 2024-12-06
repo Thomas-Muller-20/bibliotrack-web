@@ -1,0 +1,26 @@
+.book-grid {
+  display: grid;
+  color: #dcdbdb;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  border: 1px solid #444;
+}
+
+.book-grid-header {
+  display: contents;
+}
+
+.grid-item {
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #444;
+  color: #1c1c1c;
+}
+
+.book-grid-item {
+  display: contents;
+}
+
+.book-grid-item div {
+  padding: 10px;
+}

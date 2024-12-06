@@ -1,0 +1,13 @@
+.custom-transparent-btn {
+  color: #000;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: border-color 0.3s, color 0.3s;
+  text-decoration: none;
+}
+
+.custom-transparent-btn:hover {
+  border-color: #ccc;
+  color: #333;
+}

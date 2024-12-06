@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import {Book} from "../model/book"
 import {HttpClient} from "@angular/common/http"
+import {Observable} from "rxjs"
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,13 @@ export class BookService {
   constructor(private http: HttpClient) { }
 
   save(value: Partial<Book>) {
-    console.log(value)
     return this.http.post<Book>(this.basic, value)
+  }
+  getAll(): Observable<Book[]> {
+    return this.http.get<Book[]>(this.basic)
+  }
+
+  update(value: Book, id: number): Observable<Book> {
+    return this.http.put<Book>(this.basic + `/` + id, value)
   }
 }

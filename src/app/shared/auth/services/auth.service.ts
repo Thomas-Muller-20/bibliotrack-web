@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http'
 
 import { BehaviorSubject, Observable } from 'rxjs'
 import {User, UserCredentials, UserRole} from "../model/user.model"
-import {map} from "rxjs/operators"
 import jwt_decode from 'jwt-decode'
 @Injectable({
   providedIn: 'root'

@@ -1,0 +1,33 @@
+<div class="home d-flex justify-content-center align-items-center min-vh-100 bg-black">
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-12" *ngIf="books$ | async as books; else noBooks">
+        <div class="table-container" style="max-height: 90vh; overflow-y: auto; margin-top: 50px">
+          <div fxLayout="column" fxLayoutAlign="center center" class="book-grid">
+            <div class="book-grid-header">
+              <div class="text-center grid-item">Title</div>
+              <div class="text-center grid-item">Author</div>
+              <div class="text-center grid-item">Description</div>
+              <div class="text-center grid-item">Actions</div>
+            </div>
+            <div *ngFor="let book of books" class="book-grid-item">
+              <div class="text-center">{{ book.title }}</div>
+              <div class="text-center">{{ book.author }}</div>
+              <div class="text-center">{{ book.description }}</div>
+              <div class="text-center">
+                <button mat-raised-button color="primary" (click)="openEditModal(book)">
+                  Edit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noBooks>
+      <div class="text-center mt-5 text-white">
+        <p>No book.</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

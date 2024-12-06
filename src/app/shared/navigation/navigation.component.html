@@ -25,6 +25,22 @@
           <li class="nav-item ms-2">
             <div *ngIf="user$ | async as user" class="d-flex">
               <ul class="navbar-nav flex-row mb-2 mb-lg-0">
+                <ng-container *ngIf="(isGuest$ | async) === false" >
+                  <li class="nav-item">
+                    <a class="nav-link custom-transparent-btn" aria-current="page" [routerLinkActive]="'active'"
+                       [routerLink]="'book-list'">
+                      Books
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link custom-transparent-btn" aria-current="page" [routerLinkActive]="'active'"
+                       [routerLink]="'home'">
+                      Home
+                    </a>
+                  </li>
+                </ng-container>
+              </ul>
+              <ul class="navbar-nav flex-row mb-2 mb-lg-0">
                 <li class="nav-item pe-3 border-end">
                   <div>
                     <button mat-raised-button (click)="openBookCreateDialog()" class="btn " type="button">
@@ -33,11 +49,11 @@
                   </div>
                 </li>
               </ul>
-              <button [matMenuTriggerFor]="menu" mat-raised-button>
+              <button [matMenuTriggerFor]="menu" mat-raised-button color="accent">
                 {{ user.username }}
               </button>
-              <mat-menu #menu="matMenu">
-                <a mat-menu-item class="dropdown-item" [routerLink]="['profile', user.id]">Profile</a>
+              <mat-menu #menu="matMenu" class="custom-menu">
+                <a mat-menu-item class="dropdown-item" [routerLink]="['wishlist', user.id]">Wishlist</a>
                 <a mat-menu-item class="dropdown-item" [routerLink]="['home']" (click)="openSignOutDialog()">Sign
                   out</a>
               </mat-menu>
