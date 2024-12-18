@@ -21,4 +21,5 @@ jobs:
         run: npm install
 
       - name: Deploy to Vercel
-        run: npx vercel --token O6AZOCB0m07m1Qk0TAiy4hdd --prod
+        run: npx vercel --token O6AZOCB0m07m1Qk0TAiy4hdd --prod --yes
+
