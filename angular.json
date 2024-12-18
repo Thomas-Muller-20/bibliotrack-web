@@ -100,6 +100,51 @@
               "src/**/*.html"
             ]
           }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "bibliotrack-web:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "bibliotrack-web:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "ct": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "bibliotrack-web:serve",
+            "watch": true,
+            "headless": false,
+            "testingType": "component"
+          },
+          "configurations": {
+            "development": {
+              "devServerTarget": "bibliotrack-web:serve:development"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "bibliotrack-web:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "bibliotrack-web:serve:production"
+            }
+          }
         }
       }
     }
@@ -107,7 +152,9 @@
   "cli": {
     "analytics": "5a9e65bd-113c-4069-892a-2449a037b641",
     "schematicCollections": [
-      "@angular-eslint/schematics"
+      "@cypress/schematic",
+      "@angular-eslint/schematics",
+      "@schematics/angular"
     ]
   }
 }
